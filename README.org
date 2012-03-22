@@ -1,0 +1,41 @@
+* Introduce
+"TinyChineseWordSeg" is light and fast word segmentation class for Chinese. 
+Since there is no whitespace in Chinese, "segmentation of words" is usually the fundamental step of any syntax and semantic analysis.
+A example is "Stanford Chinese Segmenter" (http://nlp.stanford.edu/software/segmenter.shtml).
+
+* Requirements
+** ~~NONE~~
+
+* Usage
+    from wordseg import WordSeg 	
+    #init (it will take a time ...But much fast than Standford one :)
+    seg = WordSeg()
+
+    lines=[u"我爱北京天安门",u"好好打一架钢琴。"]
+    for line in lines:
+        line = line.strip()
+        # return a list of words 
+        result = seg.splitTerms(line)
+        print '|'.join(result)
+
+
+
+* Develope
+
+** test
+*** test case 1
+我爱|北京|天安门
+好好|打一架|钢琴|。
+
+*** test case 2
+无论|你|喜欢|与否|，在|眼下|的|中国|，在|北京|这样|所谓|的|国际化|都市|，|全职|太太|已经|不再|是|有钱人|的|专利|，|而是|逐渐|走向|平民|化。|我的|全职|闺密中，因着|物以类聚|的|社交|原则|，|几乎|都|符合|如下|特征|：|工薪阶层|、|家境|小康|，有一到两个低龄|小孩|，|全家|每年|至少|安排|一次|长途|旅游|，|每周|去|一次|沃尔玛|、麦德隆|之类|的大|超市|，|偶尔|花大|价钱|买|有机|蔬菜|和|有机|肉。|其他|额外|花费|包括|：|情人节|扎堆|看一场|电影|、到|海底|捞|饕餮|一顿，到|颐和园|发|发呆|，|享受|一把|慈禧太后|的|夏日|心情|。
+
+*** test case 3
+今天|很多|女孩子|越来越|Powerful，|越来越|强势|。
+
+
+** release
+- Thu Mar 22 19:55:20 CST 2012
+by wuliang [www.wuliang.cn at gmail.com]
+
+
