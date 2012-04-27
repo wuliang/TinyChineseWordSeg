@@ -33,8 +33,11 @@ class WordSeg(object):
             ref=d
             for char in self.ngram(1, word):
                 #print char, word[0]
-                ref[char]=ref.has_key(char) and ref[char] or {}
-                ref=ref[char]
+                ##### Ver 1#######
+                #ref[char]=ref.has_key(char) and ref[char] or {}
+                #ref=ref[char]
+                #####Ver 2########
+                ref = ref.setdefault(char, {})
             ref['']=1
         return d
 
